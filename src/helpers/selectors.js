@@ -10,9 +10,8 @@ export function getAppointmentsForDay(state, day) {
   //turn appointments in an iterable object
   const arrAppointment = Object.values(state.appointments);
 
-
-  for (let i = 0; i < dayObj[0].appointments.length; i++) {
-    const matchAppontment = arrAppointment.filter(a => a.id === dayObj[0].appointments[i]);
+  for (const app of dayObj[0].appointments) {
+    const matchAppontment = arrAppointment.filter(a => a.id === app);
     results.push(matchAppontment[0]);
   }
 
