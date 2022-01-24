@@ -51,7 +51,8 @@ export default function Application(props) {
     day: "Monday",
     days: [],
     // you may put the line below, but will have to remove/comment hardcoded appointments variable
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -83,6 +84,16 @@ export default function Application(props) {
   }, []);
   const setDay = day => setState({ ...state, day });
 
+  const schedule = dailyAppointments.map((appointment) => {
+    // const interview = getInterview(state, appointment.interview);
+    return (
+      <Appointment
+        key={appointment.id}
+        {...appointment}
+      />
+    );
+  });
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -105,7 +116,7 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />      </section>
       <section className="schedule">
-        {dailyAppointments.map(a => <Appointment key={a.id} {...a} />)}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>

@@ -17,3 +17,19 @@ export function getAppointmentsForDay(state, day) {
 
   return results;
 }
+
+export function getInterview(state, interview) {
+  const result = {};
+  const interviewAppointments = Object.values(state.appointments).filter(a => a.interview);
+
+  for (const a of interviewAppointments) {
+    if (a.interview === interview) {
+      result.student = a.interview.student;
+      result.interviewer = state.interviewers[a.interview.interviewer]
+    }
+  }
+  if (!interview)
+    return null;
+
+  return result;
+}
