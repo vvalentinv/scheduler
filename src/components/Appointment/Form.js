@@ -8,7 +8,7 @@ export default function Form(props) {
 
   const cancel = () => {
     reset();
-    // props.onCancel();
+    props.onCancel();
   }
   const reset = () => {
     setStudent("");
@@ -30,7 +30,6 @@ export default function Form(props) {
       </form>
       <InterviewerList
         interviewers={props.interviewers}
-        //value={4}
         value={interviewer}
         onChange={updateInterviewer}
       />

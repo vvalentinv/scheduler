@@ -1,3 +1,6 @@
+import React from "react";
+import InterviewerListItem from "components/InterviewerListItem";
+
 export function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
   const results = [];
@@ -32,4 +35,34 @@ export function getInterview(state, interview) {
     return null;
 
   return result;
+}
+
+export function getInterviewersForDay(state, dayName) {
+  const results = [];
+  let dailyInterviewers = [];
+
+  for (const day of state.days) {
+    if (day.name === dayName) {
+      dailyInterviewers = day.interviewers;
+    }
+  }
+
+  if (!dailyInterviewers.length)
+    return results;
+
+  for (const interviewer of Object.values(state.interviewers)) {
+    for (const i of dailyInterviewers) {
+      if (interviewer.id === i) {
+        let currentInterviewer = {};
+        currentInterviewer.key = interviewer.id;
+        currentInterviewer.id = interviewer.id;
+        currentInterviewer.avatar = interviewer.avatar;
+        currentInterviewer.name = interviewer.name;
+        results.push(currentInterviewer);
+      }
+    }
+  }
+
+
+  return results;
 }
