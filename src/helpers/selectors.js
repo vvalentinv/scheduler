@@ -1,6 +1,3 @@
-import React from "react";
-import InterviewerListItem from "components/InterviewerListItem";
-
 export function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
   const results = [];

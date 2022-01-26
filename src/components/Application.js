@@ -92,10 +92,30 @@ export default function Application(props) {
         interviewers={dailyInterviewers}
         // interview={interview}
         {...appointment}
+        bookInterview={bookInterview}
       />
     );
   });
 
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return (
+      axios.put(`/api/appointments/${id}`, appointment)
+        .then(() => setState(prev => ({ ...prev, appointments })))
+        .catch(err => console.log(err.message))
+
+    );
+    // setState({ ...state, appointments });
+  }
   return (
     <main className="layout">
       <section className="sidebar">
