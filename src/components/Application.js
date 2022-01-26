@@ -94,9 +94,11 @@ export default function Application(props) {
         {...appointment}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
+
       />
     );
   });
+
 
   function bookInterview(id, interview) {
     const appointment = {
@@ -112,7 +114,7 @@ export default function Application(props) {
     return (
       axios.put(`/api/appointments/${id}`, appointment)
         .then(() => setState(prev => ({ ...prev, appointments })))
-        .catch(err => console.log(err.message))
+      // .catch(err => console.log(err.message))
 
     );
 
@@ -134,7 +136,7 @@ export default function Application(props) {
     return (
       axios.delete(`/api/appointments/${id}`, appointment)
         .then(() => setState(...state, appointments))
-        .catch(err => console.log(err.message))
+      // .catch(err => console.log(err.message))
 
     );
 

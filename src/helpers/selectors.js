@@ -63,3 +63,13 @@ export function getInterviewersForDay(state, dayName) {
 
   return results;
 }
+
+export function getInterviewerName(interviewers, id) {
+  let result = "";
+  for (const interviewer of interviewers) {
+    if (interviewer.id === id) {
+      result = interviewer.name;
+    }
+  }
+  return result;
+}
