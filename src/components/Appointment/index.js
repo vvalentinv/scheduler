@@ -45,8 +45,14 @@ export default function Appointment(props) {
     // transition(CONFIRM);
     transition(DELETING);
     props.cancelInterview(props.id)
-      .then(() => transition(EMPTY))
-      .catch(error => transition(ERROR_DELETE, true));
+      .then(() => {
+        console.log("Promise resolved");
+        transition(EMPTY)
+      })
+      .catch(error => {
+        console.log("in error", error);
+        transition(ERROR_DELETE, true)
+      });
 
   }
 
