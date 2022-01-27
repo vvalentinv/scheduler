@@ -1,7 +1,12 @@
 # Interview Scheduler
   A scheduling application allowing a student to book an appointment with a mentor. When the application is loaded an API call is made to the API server and the data is loaded into the SPA React app. 
   
-  ![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+  
+  ![Scheduler](https://github.com/vvalentinv/scheduler/blob/master/docs/Scheduler.JPG)
+  ![bookAppointment](https://github.com/vvalentinv/scheduler/blob/master/docs/bookAppointment.JPG)
+  ![formValidation](https://github.com/vvalentinv/scheduler/blob/master/docs/formValidation.JPG)
+  ![AsynchronousOperationStatusIndicator](https://github.com/vvalentinv/scheduler/blob/master/docs/AsynchronousOperationStatusIndicator.jpg)
+  ![ErrorMessage](https://github.com/vvalentinv/scheduler/blob/master/docs/ErrorMessage.jpg)
 ## Stack
   Development focuses on a single page application (SPA) called Interview Scheduler, built using React.
   Data is persisted by the API server using a PostgreSQL database.
