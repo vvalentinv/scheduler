@@ -21,9 +21,13 @@ export default function Form(props) {
     setError("");
   }
 
-  function validate(student) {
+  function validate(student,) {
     if (student === "") {
       setError("Student name cannot be blank");
+      return;
+    }
+    if (!interviewer) {
+      setError("Select an Interviewer");
       return;
     }
 

@@ -27,7 +27,6 @@ export default function Appointment(props) {
   );
 
   const save = (name, interviewer) => {
-    // console.log(name, interviewer);
     const interview = {
       student: name,
       interviewer
@@ -41,16 +40,12 @@ export default function Appointment(props) {
   }
 
   const remove = () => {
-    //transition to Confirm
-    // transition(CONFIRM);
     transition(DELETING);
     props.cancelInterview(props.id)
       .then(() => {
-        console.log("Promise resolved");
         transition(EMPTY)
       })
       .catch(error => {
-        console.log("in error", error);
         transition(ERROR_DELETE, true)
       });
 
@@ -66,7 +61,7 @@ export default function Appointment(props) {
         onDelete={() => transition(CONFIRM)}
         onEdit={() => transition(EDIT)}
         name={getInterviewerName(props.interviewers, props.interview.interviewer)}
-      // interview={props.interview}
+        interview={props.interview}
       />
     )}
     {mode === CREATE && <Form interviewers={props.interviewers}

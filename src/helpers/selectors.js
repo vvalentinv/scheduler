@@ -64,6 +64,7 @@ export function getInterviewersForDay(state, dayName) {
   return results;
 }
 
+//returns the name of the interviewer, to be used in <Show />
 export function getInterviewerName(interviewers, id) {
   let result = "";
   for (const interviewer of interviewers) {
@@ -74,6 +75,7 @@ export function getInterviewerName(interviewers, id) {
   return result;
 }
 
+// counts spots in appointments array
 export function getDailySpots(day, appointments) {
   let spots = 0;
   for (const appointment of day.appointments) {

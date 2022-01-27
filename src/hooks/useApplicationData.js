@@ -8,7 +8,6 @@ export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    // you may put the line below, but will have to remove/comment hardcoded appointments variable
     appointments: {},
     interviewers: {}
   });
@@ -16,8 +15,7 @@ export default function useApplicationData() {
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
-    // const daysURL = `api/days`;
-    // axios.get(daysURL).then(response => {
+
     Promise.all([
       axios.get('/api/days'),
       axios.get('/api/appointments'),
@@ -30,15 +28,7 @@ export default function useApplicationData() {
         appointments: appointments.data,
         interviewers: interviewers.data
       }));
-      // console.log(all[0]); // first
-      // console.log(all[1]); // second
-      // console.log(all[2]); // third
-
-      // const [first, second, third] = all;
-
-      // console.log(first, second, third);
     });
-    //});
   }, []);
 
 
@@ -61,8 +51,6 @@ export default function useApplicationData() {
           setState(prev => ({ ...prev, appointments, days }));
         })
     );
-
-
   }
 
   function cancelInterview(id) {
@@ -96,9 +84,5 @@ export default function useApplicationData() {
     return state.days.map(d => d.name === state.day ? day : d);
   }
 
-
-
   return { state, setDay, bookInterview, cancelInterview, remainingSpots };
-
-
 }
