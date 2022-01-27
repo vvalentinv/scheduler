@@ -73,3 +73,13 @@ export function getInterviewerName(interviewers, id) {
   }
   return result;
 }
+
+export function getDailySpots(day, appointments) {
+  let spots = 0;
+  for (const appointment of day.appointments) {
+    if (!appointments[appointment].interview) {
+      spots++;
+    }
+  }
+  return spots;
+}
